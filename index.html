@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f1f3ed" />
+    <script>
+      (function () {
+        var preference = 'system'
+        try {
+          var stored = JSON.parse(
+            window.localStorage.getItem('infsein.site.preferences.v1') || 'null',
+          )
+          if (stored && ['light', 'dark', 'system'].indexOf(stored.theme) !== -1) {
+            preference = stored.theme
+          }
+        } catch (error) {
+          preference = 'system'
+        }
+
+        var prefersDark =
+          window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        var theme = preference === 'system' ? (prefersDark ? 'dark' : 'light') : preference
+        var root = document.documentElement
+
+        root.dataset.theme = theme
+        root.style.colorScheme = theme
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', theme === 'dark' ? '#0e1511' : '#f1f3ed')
+      })()
+    </script>
+    <meta
+      name="description"
+      content="InfSein, Full stack developer. An interest-driven indie developer."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>InfSein | Full stack developer</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p>此页面需要启用 JavaScript。This page requires JavaScript.</p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
