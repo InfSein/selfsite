@@ -27,9 +27,9 @@ export const PROJECTS: Project[] = [
     category: 'production',
     name: { zh: 'CAC 工具站', en: 'CAC Toolkit', ja: 'CAC ツール' },
     desc: {
-      zh: '制定生产工具压缩/解压的标准，并提供相应在线工具。',
-      en: 'A standard for compressing and decoding crafting actions, with an online tool.',
-      ja: '制作アクションの圧縮・展開規格と、対応するオンラインツール。',
+      zh: '制定生产工序压缩/解压的标准，并提供相应在线工具。',
+      en: 'A standard for compressing and decompressing crafting sequences, with an online tool.',
+      ja: '制作工程の圧縮・展開規格と、対応するオンラインツール。',
     },
     langs: ['zh', 'ja', 'en'],
     url: 'https://cac.nbb.fan',
